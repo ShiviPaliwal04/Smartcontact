@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="Users/base::layout(~{::section})">
+<head>
+    <title>About Us</title>
+    <!-- Add Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Ensure proper alignment and spacing for input groups */
+        .input-group {
+            margin-bottom: 1rem; /* Space between input groups */
+        }
+
+        .input-group-text {
+            padding: 0.375rem 0.75rem; /* Adjust padding inside the icon container */
+            font-size: 1rem; /* Icon size */
+            line-height: 1.5; /* Ensure vertical alignment */
+            border-radius: 0.25rem; /* Rounded corners for consistency */
+        }
+
+        .form-control {
+            flex: 1; /* Allow input to fill the remaining space */
+            margin-left: -1px; /* Adjust to align with the border */
+        }
+
+        .input-group-prepend .input-group-text {
+            border-right: 0; /* Remove border to avoid double borders */
+        }
+
+        /* Custom styling for textarea */
+        textarea.form-control {
+            resize: vertical; /* Allow vertical resizing only */
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello world</h1>
+    
+    <section>
+        <div class="card mr-3 ml-2">
+            <div class="card-body">
+                <h2 class="text-center">Add Contact</h2> 
+                <div class="container-fluid mt-1">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <form action="#" th:object="${contact}" enctype="multipart/form-data" method="POST" th:action="@{/user/process-contact}" class="mt-2">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-plus"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" id="secondname" name="Name" placeholder="Enter Name Here" class="form-control"/>
+                                </div>
+
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-user-alt"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" id="secondName" name="secondName" placeholder="Enter Your Nick Name Here" class="form-control"/>
+                                </div>
+
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" id="phone" name="phone" pattern="[7-9]{1}[0-9]{9}" placeholder="Enter Mobile Number Here" class="form-control"/>
+                                </div>
+
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            @
+                                        </div>
+                                    </div>
+                                    <input type="email" id="email" name="email" placeholder="Enter Email Here" class="form-control"/>
+                                </div>
+
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"> 
+                                            <i class="fa fa-briefcase"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" id="work" name="work" placeholder="Enter Work Here" class="form-control"/>
+                                </div>
+
+                                <div class="form-group mt-3">
+                                    <textarea class="form-control" placeholder="Enter contact description" name="description" id="description" rows="20"></textarea>
+                                </div>
+                                
+                                <div class="container">
+                                <input type="file" name="profileImage">
+                                </div>
+                                
+                                <div class="container text-center">
+                                <button class="btn btn-outline-primary">Save Contact</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
